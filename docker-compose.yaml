@@ -1,0 +1,11 @@
+version: "2"
+services:
+    panel-app:
+        image: node:9.4.0-alpine
+        volumes:
+            - ./:/panel
+        working_dir:
+            "/panel"
+        ports:
+          - 3002:3002
+        command: npm run docker
