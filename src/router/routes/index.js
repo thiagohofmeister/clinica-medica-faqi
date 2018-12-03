@@ -1,6 +1,14 @@
 import Route from './Route'
 import Layout from '@/components/template/Layout'
-import Dashboard from '@/views/Dashboard'
+
+// Pacientes
+import PacientesList from '@/views/Pacientes/List'
+import PacienteConsultas from '@/views/Pacientes/Consultas'
+import MarcarConsulta from '@/views/Pacientes/MarcarConsulta'
+
+// Medicos
+import MedicosList from '@/views/Medicos/List'
+import MedicoConsultas from '@/views/Medicos/Consultas'
 
 import AccessError from '@/views/AccessError'
 import NotFound from '@/views/NotFound'
@@ -12,7 +20,11 @@ import NotFound from '@/views/NotFound'
  */
 const routes = [
   new Route(Layout, '/').setChildren([
-    new Route(Dashboard, '', 'dashboard')
+    new Route(PacientesList, ''),
+    new Route(PacienteConsultas, '/paciente/consultas/:cpf'),
+    new Route(MarcarConsulta, '/paciente/marcar/:cpf'),
+    new Route(MedicosList, '/medicos'),
+    new Route(MedicoConsultas, '/medico/consultas/:crm')
   ]),
   new Route(AccessError, '/accessError'),
   new Route(NotFound, '/notFound'),
